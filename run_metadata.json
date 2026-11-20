@@ -1,0 +1,45 @@
+{
+ "python": "3.13.18",
+ "numpy": "2.5.3",
+ "pandas": "3.0.5",
+ "sklearn": "1.8.0",
+ "xgboost": "3.4.1",
+ "shap": "0.54.1",
+ "statsmodels": "0.15.0",
+ "scipy": "1.18.1",
+ "data_file": "compas-scores-two-years.csv",
+ "data_sha256": "6b6535ba5e5771017e82729639313b11b4f4e17958d66e5beec4817fb9a8e499",
+ "data_rows": 7214,
+ "analytic_sample": 6172,
+ "seeds": {
+  "main": 42,
+  "bootstrap_full": 43,
+  "repeated_splits": "range(1000, 1050)",
+  "oob_retrain": "range(5000, 5300)",
+  "sweep_20k": 47,
+  "race_aware_splits": "range(1000, 1050)"
+ },
+ "bootstrap": {
+  "test_set_B": 2000,
+  "sweep_B": 20000,
+  "oob_B": 300,
+  "reweight_B": "300 (200 for gradient boosting)",
+  "eo_boot_B": 1000
+ },
+ "models": {
+  "rf": "RandomForest(n_estimators=300, max_depth=6, min_samples_leaf=20, class_weight=balanced)",
+  "xgb": "XGBClassifier(n_estimators=300, max_depth=4, learning_rate=0.05, subsample=0.8, colsample_bytree=0.8)",
+  "lr": "StandardScaler + LogisticRegression(class_weight=balanced)"
+ },
+ "outputs": [
+  "additional_checks.json",
+  "eo_repeated_splits_50.csv",
+  "oob_retrain_300.csv",
+  "race_aware_matched_splits_50.csv",
+  "repeated_splits_50.csv",
+  "repeated_splits_summary.json",
+  "results.json",
+  "revision_analyses.json",
+  "round2_analyses.json"
+ ]
+}
